@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+    <script language="JavaScript" type="text/javascript"
+    src="CookieFunctions.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        var lastUpdated = new Date("Tue, 28 Dec 2020");
+    </script>
+</head>
+<body>
+    
+    <h1 align=center>Welcome to my website</h1>
+
+    <h1 align="center"><img src="WhatsNew.jpg" alt="javascript"></h1>
+    <div align="center" id="WhatsNewDiv"></div>
+    <script>
+        var lastVist = getCookieValue("LastVisit");
+        if (lastVisit != null)
+        {
+          lastVisit = new Date(lastVisit);
+          if (lastVisit < lastUpdated)
+          {
+            document.getElementById(WhatsNew.html)
+          }
+   
+        }
+        var nowDate = new Date();
+        setCookie("LastVisit", nowDate.toGMTString(),"","")
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Document</title>
+</head>
+<body>
+    <h2 align="center">Here's what's new on this website</h2>
+</body>
+</html>

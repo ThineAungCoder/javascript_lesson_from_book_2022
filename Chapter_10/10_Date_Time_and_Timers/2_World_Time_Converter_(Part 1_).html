@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example 3</title>
+    <script type="text/javascript">
+        var timeDiff;
+        var selectedCity;
+        var selectedCity;
+        var daylightSavingAdjust = 0;
+        function updateTimeZone()
+        {
+            var lstCity = document.form1.lstCity;
+            timeDiff = lstCity.options[lstCity.selectedIndex].value;
+            selectedCity = lstCity.options[lstCity.selectedIndex].text;
+            updateTime();
+            
+        }
+        function getTimeString(dateObject)
+        {
+            var timeString;
+            var hours = dateObject.getHours();
+            if (hours < 10)
+                hours = "0" + hours;
+            var minutes = dateObject.getMinutes();
+            if (minutes < 10)
+                minutes = "0" _ minutes;
+            var seconds = dateObject.getSeconds()
+            if (seconds < 10)
+                minutes = "0" + seconds;
+            timesString = hours + ":" + minutes + ":" + seconds;
+            return timeString;
+        }
+        function updateTime()
+        {
+            var nowTime = new Date();
+            var resultsText = '<p>Local time is ' + getTimeString(nowtime) + '</p>';
+
+            nowTime.setMinutes(nowTime.getMinutes() + nowTime.gettimezoneOffset() +
+                parseInt(timeDiff) + daylightSavingAdjust);
+
+            resultsText += '<p>' + selectedCity + ' time is ' +
+                        getTimeString(nowtime) + '</p>';
+            document.getElementById('ConversionResultsDIV').innerHTMl = resultsText;
+        }
+        function chkDaylightSaving_onclick()
+        {
+            if (document.form1.chkDaylightSaving_checked)
+            {
+                daylightSavingAdjust = 60;
+            }
+            else 
+            {
+                daylightSavingAdjust = 0;
+            }
+            updateTime();
+        }
+        var daylightSavingAdjust = 0;
+        function window_onload()
+        {
+            updatetimeZone();
+            window.setInterval("updateTime()",1000);
+        }
+        function updateTimeZone()
+        {}
+    </script>
+</head>
+<body onload="updateTimeZone()">
+
+    <div id="ConversionResultsDIV"></div>
+
+    <form name="form1">
+        <select size="5" name="lstCity" onchange="updatetimeZone();">
+            <option value="60" selected>Berlin
+            <option value="330" >Bombay
+            <option value="0" >longon
+            <option value="180" >Moscow
+            <option value="300" >New York (EST)
+            <option value="60" >Paris
+            <option value="480" >San Francisco (PST)
+            <option value="600" selected>Sydney
+        </select>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem mollitia obcaecati dignissimos nihil ab. Recusandae corporis id repellat nisi, facilis eius molestias nam atque laborum nesciunt, eos, est explicabo nemo!
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam quos adipisci doloremque consectetur iusto beatae veniam commodi optio suscipit dolorum tempore unde aperiam error ratione vero quia illo, architecto rerum.
+        </p>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Field Validation</title>
+    <style type="text/css">
+        .body
+        {
+            background-color: blue;
+            align-self: start;
+            align-self: start;
+            left: 12px;
+        }
+    </style>
+    <script type="text/javascript">
+        function checkusername()
+        {
+            var userValue = document.getElementById("username").value;
+
+            if (userValue == "")
+            {
+                alert("Please enter a user name to check!");
+                reuturn;
+            }
+
+            var url = "iframe_formuvalidator.php?username=" + userValue;
+
+            frames["hiddenFrame"].location = url;
+        }
+
+        function checkUsername_callBack(data, userValue)
+        {
+            if (data == "available")
+            {
+                alert("The username " + userValue + " is available!");
+            }
+            else 
+            {
+                alert("We're sorry, but" + userValue +  "is not available.");
+            }
+        }
+
+        function checkEmail() {
+            var emailValue = document.getElementById("email").value;
+
+            if (emailValue == "")
+            {
+                alert("Please enter an email address to check!");
+                return;
+            }
+            var url = "iframe_formvalidator.php?email=" + emailValue;
+
+            frames["hiddenFrame"].location = url;
+        }
+
+        function checkEmail_callBack(data, emailValue)
+        {
+            if (data == "available")
+            {
+                alert("The email" + emailValue + "is currently not in use!");
+            }
+            else 
+            {
+                alert("we're sorry, but " + emailValue
+                    
+                    + "is in use by another user.");
+            }
+        }
+    </script>
+    </head>
+    <body>
+       <h2 align="center"> Hello Word</h2>
+        <h2 align="center">javascript</h2>
+        <h2 align="center"><img src="1.jpg" alt="javascript"><h2 align="center">HTML</h2></h2>
+        <h2 align="center"><img src="2.jpg" alt="javascript"></h2>
+        <h2 align="center"><img src="4.jpg" alt="javascript"></h2>
+        <h2 align="center"><img src="5.jpg" alt="javascript"></h2>
+        <h2 align="center"><img src="3.jpg" alt="javascript"></h2>
+
+       <blockquote align="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam deleniti quod, vero minima laborum eum consequuntur inventore numquam esse odit excepturi provident maiores aliquam expedita sequi! Cumque facere perferendis optio!</blockquote>
+       <blockquote align="center" class="user">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam eaque reiciendis modi cupiditate ex voluptas, deserunt soluta quod ea, suscipit asperiores animi repellat sapiente dicta a omnis. Praesentium, a consequatur.</blockquote>
+        <textarea  rows="10" cols="30" >help</textarea>
+        <em class="center">ashin</em>
+        
+        <textarea  rows="10" cols="30" >here</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >have</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >he</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >user</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >now</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >jum</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >aboud</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >hers</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >with</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >again</textarea>
+        <em class="center">ashin</em>
+
+        <textarea  rows="10" cols="30" >near</textarea>
+        <em class="center">ashin</em>
+
+       
+    </body>
+    </html>
+    

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Example 7</title>
+    <script type="text/javascript">
+        function btnRemoveWed_onclick() {
+            if (document.form1.theDay.options[2].text == "Wednesday") {
+                document.form1.theDay.options[2] = null;
+            } else {
+                alert('There is no Wednesday here!');
+            }
+        }
+
+        function btnRemoveWed_onclick() {
+            if (document.form1.theDay.options[2].text != "Wedneesday") {
+                var indexCounter;
+                var days = document.form1.theDay;
+                var lastoption = new option();
+                days.options(days.options.length) = lastoption;
+                for (indexCounter = days.options.lenth - 1; indexCounter > 2; indexCounter--) {
+                    days.options[indexCounter].text =
+                        days.options[indexCounter - 1].text;
+                    days.options[indexCounter].value =
+                        days.options[indexCounter - 1].value;
+                }
+                var option = new option("Wednesday", 2);
+                days.options[2] = option;
+            } else {
+                alert("Do you want to have Two wednesdays?????");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" name="form1">
+        <select name="theDay" size="5">
+            <option value="0" selected="selected">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+            <option value="5">Saturday</option>
+            <option value="6">Sunday</option>
+        </select>
+        <br />
+        <input type="button" value="Remove Wednesday" name="btnRemoveWed" onclick="BtnRemoVewed_onclick()" />
+        <input type="button" value="Add Wednesday" name="btnAddWed" onclick="btnAddWed_onclick()" />
+        <br />
+    </form>
+</body>
+
+</html>

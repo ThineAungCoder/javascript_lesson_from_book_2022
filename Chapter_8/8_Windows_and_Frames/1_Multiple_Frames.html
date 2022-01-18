@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 1</title>
+</head>
+<frameset row="50%, *" id="topWindow">
+    <frame name="upperWindow" src="ch08_exampl_upper.html" />
+    <frame name="lowerWindow" src="ch08_exampl_lower.html" />
+</frameset>
+</head>
+
+<body>
+    <p>
+        Frame Upper
+    </p>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 1 Upper Frame</title>
+    <script type="text/javascript">
+        function window_onload() {
+            alert("The name of the upper frame's window object is" +
+                window.parent.location.href);
+        }
+    </script>
+</head>
+
+<body onchange="window_onload()">
+    <p>
+        Upper Frame
+    </p>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 1 Lower Frame</title>
+    <script type="text/javascript">
+        function window_onload() {
+            alert("The name of the Lower Frame's window object is" +
+                window.parent.location.href);
+
+            alert("The location of lowerWindow's parent is " +
+                window.parent.location.href);
+        }
+    </script>
+</head>
+
+<body onload="window_onload()">
+    <p>
+        Lower Frame
+    </p>
+</body>
+
+</html>

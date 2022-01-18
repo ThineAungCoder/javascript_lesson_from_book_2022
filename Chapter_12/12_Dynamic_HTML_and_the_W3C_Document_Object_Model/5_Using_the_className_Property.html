@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12: Example 5</title>
+    <style type="text/css">
+        .defaultStyle
+        {
+            font: normal 12pt arial;
+            text-decoration: none;
+        }
+        .newStyle
+        {
+            font: italic 12px arial;
+            text-decoration: underline;
+        }
+    </style>
+    <script type="text/javascript">
+        function divAdvert_onMouseOver()
+        {
+            var divAdvert = document.getElementById("divAdvert");
+            divAdvert.className = "newStyle";
+        }
+        function divAdvert_onMouseOut()
+        {
+            var divAdvert = document.getElementById("divAdvert");
+            divAdvert.className = "defaultStyle";
+        }
+    </script>
+</head>
+<body>
+    <div id="divAdvert" class="defaultStyle" onmouseover="divAdvert_onMouseOver()"
+    onmouseout="divAdvert_onMouseOut()">
+    Here is an advertisement.
+</div>
+</body>
+</html>

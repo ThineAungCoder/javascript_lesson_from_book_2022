@@ -1,0 +1,31 @@
+<p>Hello</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example 6</title>
+    <script type="text/JavaScript">
+        function buttton1_onclick()
+        {
+            var myString = "<table align=center><tr><td>";
+            myString = myString + "Hello World"</td></tr></table>";
+            myString = myString + "<br><h2>Heading</h2>";
+            var myRegExp = /<[^>\r\n]+>|[^<>\r\n]+/g;
+            var resultsArray = myString.match(myRegExp);
+            document.form1.textareal.value = "";
+            document.form1.textaeal.value =  resultsArray.join(("\r\n");
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <textarea rows="10" cols="40" name="textareal">
+            <input type="button" value="Split HTML" name="buttonl"
+                onclick="return buttonl_onclick();">
+        </textarea>
+    </form>
+</body>
+</html>

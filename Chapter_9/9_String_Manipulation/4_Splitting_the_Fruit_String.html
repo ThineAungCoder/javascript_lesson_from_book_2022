@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javaScript">
+        var myListString = "apple, 0.99, banana, 0.50. peach, 0.25, orange, 0.75";
+        var theRegExp = /[^a-z]+/i;
+        var myFruitArray = myListString.split(theregExp);
+        document.wirte(myFruitArray.join("<br />"));
+    </script>
+</body>
+</html>

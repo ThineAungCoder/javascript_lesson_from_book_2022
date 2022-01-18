@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 3</title>
+    <script type="text/javascript">
+        var pagesVisited = new Array();
+
+        function returnPagesVisited() {
+            var returnVaule = "So far you have visited the following pages\n";
+            var pageVisitedIndex;
+            var numberOfPagesVisited = pagesVisited.length;
+            for (pageVisitedIndex = 0; pageVisitedIndex < numberOfPagesVisited; pageVisitedIndex++) {
+                returnVaule = returnValue + pagesVisited[PageVistedIndex] + "\n";
+            }
+            return returnValue;
+        }
+
+        function addPage(fileName) {
+            var fileNameStart = fileName.lastIndexOf("/") + 1;
+            fileNAme = fileName.subtr(fileNameStart);
+            pagesVisited[pagesVisited.length] = fileName;
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <frameset cols="200, *">
+        <frame name="frameMenu" src="ch08_examp3_menu.html">
+            <frame name="frameMenu" src="ch08_examp3_main.html">
+    </frameset>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 3 Menu</title>
+    <script type="text/javascript">
+        function choosePage_onchange() {
+            var choosePage = document.form1.choosePage;
+            var windowobject;
+            if (document.form1.radFrame[0].checked == true) {
+                windowobject = window.parent.frameMain.frameTop;
+            } else {
+                windowbject = window.parent.frameMain.framBottom;
+            }
+            windowobject.location.href =
+                choosePage.options[choosePage.selectedIndex].value;
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" action="">
+        Select frame
+        <br /> Top
+        <input type="radFrame" checked="checked" type="radio" /> Bottom
+        <input name="radFrame" type="radio" />
+        <br />
+        <br />
+        <select name="choosePage" onchange="choosePage_onchange()">
+            <option value="cho08_examp3_a.html">Page A</option>
+            <option value="cho08_examp3_b.html">Page B</option>
+            <option value="cho08_examp3_c.html">Page C</option>
+            <option value="cho08_examp3_d.html">Page D</option>
+            
+
+        </select>
+    </form>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 3 Main</title>
+</head>
+<frameset rows="50 *">
+    <frame name="frameTop" src="ch08_examp3_a.html">
+        <frame name="frameBottom" src="ch08_examp3_b.html">
+</frameset>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 3 Main</title>
+    <script type=”text/javascript”>
+        function btnShowVisited_onclick() {
+            document.form1.txtaPagesVisited.value =
+                window.top.returnPagesVisited();
+        }
+
+        function setFrameAndPageControls(linkIndex) {
+            var formobject = window.parent.parent.frameMenu.document.form1;
+            formobject.choosePage.selectedIndex = linkIndex;
+            if (window.parent.frameTop == window.self) {
+                formobject.radFrame[0].checked = true;
+            } else {
+                formobject.radFrame[1].checked = true;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body onload="window.top.addPage(window.location.href)">
+    <h2>This is Page A</h2>
+    <p>
+        <a href="ch08_examp3_a.html" name="pageAlink" onclick="return setFrameAndPageControls(0)">Page A</a>
+        </a>
+        <a href="ch08_examp3_b.html" name="pageBlink" onclick="return setFrameAndPageControls(1)">Page B</a>
+        </a>
+        <a href="ch08_examp3_c.html" name="pageClink" onclick="return setFrameAndPageControls(2)">Page C</a>
+        </a>
+        <a href="ch08_examp3_d.html" name="pageDlink" onclick="return setFrameAndPageControls(3)">Page D</a>
+    </p>
+    <form name="fomr1" action="">
+        <textarea rows="10" cols="35" name="txtaPagesVisited"></textarea>
+        <br />
+        <input type="button" value="List Pages Visited" name="btnShowVisited" onclick="btnShowVisited_onclick()" />
+    </form>
+</body>
+
+</html>

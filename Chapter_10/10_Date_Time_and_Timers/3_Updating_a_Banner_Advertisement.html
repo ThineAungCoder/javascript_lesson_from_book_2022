@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script lanaguage="JavaScript" type="text/javascript">
+        var currentImgNumber = 1;
+        var numberOfImages = 3;
+
+        function window_onload()
+        {
+            setTimeout("switchImage()",3000);
+        }
+        function switchImage()
+        {
+            currentImgNumber++;
+            document.imgAdvert.src = 'AdvertImage' + currentImgNumber + '.jpg';
+            if (currentImgNumber < numberOfImages)
+            {
+                setTimeout("switchImages()",3000); 
+            }
+        }
+    </script>
+</head>
+<body onload="window_onload()">
+    <img src="1.jpg" name="imgAdvert" />
+    
+</body>
+</html>

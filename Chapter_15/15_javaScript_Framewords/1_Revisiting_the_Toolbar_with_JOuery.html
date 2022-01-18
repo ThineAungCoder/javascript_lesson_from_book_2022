@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15: Example 3 with JOuery</title>
+    <style type="text/css">
+        .tabStrip
+        {
+            background-color: #E4E2D5;
+            padding: 3px;
+            height: 22px;
+        }
+
+        .tabStrip-tap
+        {
+            float: left;
+            font: 14px arial;
+            cursor: pointer;
+            padding: 2px;
+
+            border: 1px solid transparent;
+        }
+
+        .tabStrip-tap-hover
+        {
+            border-color: #326AC5;
+        }
+
+        .tabStrip-tap-click
+        {
+            border-color: #facc5a;
+            background-color: #f9e391;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.3.2..min.js"></script>
+    <script type="text/javascript">
+        var currentNum = 0;
+        function handleEvent(e)
+        {
+            var el = $(e.target);
+
+            if (e.type == "mouseover" || e,type == "mouseout")
+            {
+                if (el.hasClass("tabStrip-tab") && !el.hasClass("tabStrip-tab-click"))
+                {
+                    el.toggleClass("tabStrip-tab-hover");
+                }
+            }
+            if (e.type == "click")
+            {
+                if (el.hasClass("tabStrip-tab-hover"))
+                {
+                    var id = e.target.id;
+                    var num = id.substr(id.lastIndexOf("-") + 1);
+
+                    if (currentNum != num)
+                    {
+                        deactivateTab();
+
+                        el.toggleClass("tabStrip-tab-hover")
+                        .toggleClass("tabStrip-tab-click");
+                        showDescription(num);
+                        currentNum = num;
+                    }
+                }
+            }
+        }
+        function showDescription(num)
+        {
+            var div = $(document.createElement("div"));
+
+            $("#descContainer").append
+            {
+                div.attr("id", "tabStrip-desc-" + num)
+                    .text("Description for tab " + num)
+            };
+        }
+
+        function deactivateTab()
+        {
+            var descEl = $("#tabStrip-desc-" + currentNum);
+
+            if (descEl.length > 0)
+            {
+                descEl.remove();
+
+                $("#tabStrip-tab-"+ currentNum).taggleClass("tabStripg-tab-click");
+            }
+        }
+        $(document).bind("click mouseover mouseout", handleEvnet);
+    </script>
+</head>
+<body>
+    <div class="tabStripg">
+        <div id="tabStrip-tab-1" class="tabStrip-tab">Tab 1</div>
+        <div id="tabStrip-tab-2" class="tabStrip-tab">Tab 2</div>
+        <div id="tabStrip-tab-3" class="tabStrip-tab">Tab 3</div>
+
+    </div>
+</body>
+</html>

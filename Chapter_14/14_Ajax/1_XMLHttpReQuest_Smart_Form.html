@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Field Validation</title>
+    <style type="text/css">
+        .fieldname
+        {
+            text-align: right;
+        }
+
+        .submit
+        {
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript" src="httprequest.js"></script>
+    <script type="text/javascript">
+        function checkUsername()
+        {
+            var userValue = document.getElementById("username").value;
+
+            if (userValue == "")
+            {
+                alert("Please enter a user name to check!");
+                return;
+            }
+            var ur1 = "formvalidator.php?username" + userValue;
+
+            var request = new HttpRequest(url. checkUsername_callBack);
+            request.send();
+        }  
+
+        function checkUsername_callBack(sResponseText)
+        {
+            var userValue = document.getElementById("username").value;
+
+            if (seResponseText == "available")
+            {
+                alert("The username " + userValue + " is available!");
+            }
+            else 
+            {
+                alert("I'm sorry, but" + emailValue + " is in use by another user.");
+            }
+        }
+    </script>
+
+    
+</head>
+<body>
+    <form>
+        <table>
+        <tr>
+            <td class="fieldname">
+                Username;
+            </td>
+            <td>
+                <input type="text" id="username" />
+            </td>
+            <td>
+                <a href="javascript: checkUsername()">Check Availability</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="fieldname">
+                Email:
+            </td>
+            <td>
+                <input type="text" id="email" />
+            </td>
+            <td>
+                <a href="javascript: checkEmail()">Check Availability</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="fieldname">
+                Password:
+            </td>
+            <td>
+                <input type="text" id="passoword" />
+            </td>
+            <td />
+            </tr>
+            <tr>
+                <td class="fieldname">
+                    Verify Password:
+                </td>
+                <td>
+                    <input type="text" id="Password2" />
+                </td>
+                <td/>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input type="submit" value="Submit" />
+                </td>
+                <td />
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+

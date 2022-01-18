@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Content</title>
+    <style type="text/css">
+        #divAdvert
+        {
+            position: absolute;
+            font: 12px Arial;
+            top: 4px;
+            left: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        var switchDirestion = false;
+
+        function doAnimation() {
+            var divAdvert = document.getElementById("divAdvert");
+            var currentLeft = divAdvert.offsetLft;
+            var newLocation;
+
+            if (switchDirection == false)
+            {
+                newLocation = currsenLeft + 2;
+                 if (currentLeft >= 400)
+                 {
+                     swichDirection = true;
+                 }
+            }
+            else 
+            {
+                newLocation = currentLeft - 2;
+
+                if (currentLeft <= 0)
+                {
+                    switchDirection = false;
+                }
+            }
+            divAdvert.style.left = newLocation + "px";
+        }
+    </script>
+</head>
+<body onload="setInterval(doAnimation, 10)">
+    <div id="divAdvert">Here is an advertisement.</div>    
+</body>
+</html>

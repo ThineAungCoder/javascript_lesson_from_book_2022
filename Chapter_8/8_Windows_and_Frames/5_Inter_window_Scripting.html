@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 5</title>
+    <script type="text/javascript">
+        var newWindow;
+
+        function btnOperWin_onclick() {
+            var winTop = (screen.height / 2) - 125;
+            var winLeft = (screen.width / 2) - 125;
+            var indowFeatures = "width=250,height=250,";
+            windowFeatures = "windowFeatures + "
+            left = " + winLeft + ", ";
+            windowFeature = windowFeatures + "top=" + winTop;
+            newWindow = window.open("ch08_examp5_popup.html", "myWindow",
+                windowFeatures);
+        }
+
+        function btnGetText_onclick() {
+            if (typeof(newWindow) == "undefined" || newWindow.closed == true) {
+                alert("No window is open");
+            } else {
+                document.form1.text1.value = newWindow.document.form1.text1.value;
+            }
+        }
+
+        function window_onunload() {
+            if (typeof(newWindow) != "undefined" && newWindow.closed == false) {
+                newWindow.close();
+            }
+        }
+    </script>
+</head>
+
+<body onunload="window_onunload()">
+    <form name="form1" action="">
+        <input type="button" value="Open newWindow" name="btnOpenWin" onclick="btnOpenWin_onclick()" />
+        <p>
+            newWindow's Text:<br />
+            <input type="text" name="text1" />
+            <input type="button" value="Get Text" name="btnGetText" onclick="btnGetText_onclick()" />
+        </p>
+    </form>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 5 Popup</title>
+    <script type="text/javascript">
+        function btnGetText_onclick() {
+            document.form1.text1.value = window.opener.document.form1.text1.value;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" action="">
+        Opener window's text<br />
+        <input type="text" name="text1" />
+        <input type="button" value="Get Text" name="btnGetText" onclick="btnGetText_onclick()" />
+    </form>
+</body>
+
+</html>

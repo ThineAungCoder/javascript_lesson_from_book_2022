@@ -1,0 +1,144 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12: Example 11</title>
+    <script type="text/javascript">
+        function createDocument()#
+        {
+            var xmldoc;
+
+            if (window.ActiveXObject)
+            {
+                var versions = 
+                [
+                    "Msxm12.DOMDocument.6.0",
+                    "Msxm12.DOMDocument.3.0"
+
+                ];
+
+                for (var i = 0; i < versions.length; i++)
+                {
+                    try 
+                    {
+                        xmlDoc = new ActiveXObject(versions[i]);
+                        return xmlDoc;
+                    }
+                    catch (error)
+                    {
+                        // do nothing here
+                    }
+                }
+            }
+            else if (document.implementation && 
+                    document.implementation.createDocument)
+            {
+                xmlDoc = document.implementation.createDocument("","",null);
+                return xmldoc;
+            }
+
+            return null;
+        }
+
+        var xmlDocument = createDocument();
+        xmlDocument.load("ch12_examp11.xml");
+
+        function displayDogs()
+        {
+            var dogNodes = xmldocument.getElementsByTagName("dog");
+
+            var table = document.createElement(table);
+            table.setAttribute("cellPadding",5); //Give the table some cell padding.
+            table.setAttribute("width", "100%");
+            table.setAttribute("border", "1");
+
+            var tableHeader = document.createElement("thead");
+            var tableRow = document.createElement("tr");
+
+            for (var i = 0; i < dogNodes[0].childNodes.length; i++)
+            {
+                var currentNode = dogNodes[0].childNodes[i];
+
+                if (currentNode.nodeType == 1)
+                {
+                    var tableHeaderCell = document.createElement("th");
+
+                    var textDate = document.createTextNode(currentNode.nodeName);
+
+                    tableHeaderCell.appendChild(textData);
+
+                    tableRow.appendChild(tableHeaderCell);
+                }
+            }
+
+            tableHeader.appendChild(tableRow);
+
+            table.appendChild(tableHeader);
+
+            var tableBoxy = document.createElement("tbody");
+
+            for (var i = 0; i < dogNodes.length; i++)
+            {
+                var tableRow = document.createElement("tr");
+
+                for (var j = 0; j < dogNodes[i].childNodes.length; j++)
+                {
+                    var currentNode = dogNodes[i].childNodes[j];
+                    if (currentNode.nodeType == 1)
+                    {
+                        var tableDataCell = document.createElement("td");
+                        var textData = document.createTextNode
+                        {
+                            currentNode.firstChild.nodeValue
+                        };
+
+                        tableDataCell.appendChild(textData);
+
+                        tableRow.appendChild(tableDataCell);
+                    }
+                }
+
+                tableBody.appendChild(tableRow);
+            }
+
+            table.appendChild(tableBody);
+
+            document.body.appendChild(table);
+        }
+    </script>
+</head>
+<body>
+   <a href="javascript: displayDogs();">Display Dogs</a> 
+</body>
+</html>
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<myDogs>
+    <dog>
+        <name>Morgan</name>
+        <breed>Labrador Retriever</breed>
+        <age>4 years</age>
+        <fullBlood>yes</fullBlood>
+        <color>chocolate</color>
+    </dog>
+    <dog>
+        <name>Molly</name>
+        <breed>Labrador Retriever</breed>
+        <age>12 years</age>
+        <fullBlood>yes</fullBlood>
+        <color>yellow</color>
+    </dog>
+    <dog>
+        <name>Madison</name>
+        <breed>Labrador Retriever</breed>
+        <age>10 years</age>
+        <fullBlood>yes</fullBlood>
+        <color>chocolate</color>
+    </dog>
+</myDogs>
+

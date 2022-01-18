@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example 1</title>
+</head>
+<body>
+    <div id="DisplayResultsDiv"></div>
+
+    <script type="text/javascript">
+        var localTime = new Date();
+        var resultsHTML = '<p>UTC Time is ' + localTime.toUTCString() + '</p>';
+        resultsHTML += 'Local Time is' + localTime.toLocaleString() + '</p.';
+
+        resultsHTML += '<p>Using toLocaltimeString() gives; '
+                + localTime.toLocaleTimeString() + '</p>';
+        resultsHTML += '<p>Using toTimeString() gives: '
+                + localTime.toLocaleTimeString() + '</p>';
+        resultsHTML += '<p>Using toLocaleDateString() gives: '
+                + localTime.toLocaleTimeString() + '</p>';
+        resultsHTML += '<p>Using toDateString() gives: :'
+            + localTime.toDateString() + '</p>';
+        document.getElementById('DisplayResultsDiv').innerHTML = resultsHTML;
+    </script>
+</body>
+</html>
+1_What's_new.htlm

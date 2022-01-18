@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 2</title>
+    <script type="text/javascript">
+        var pagesVisited = new Array();
+
+        function returnPagesVisited() {
+            var returnValue = "So far you have visited the following pages\n";
+            var pageVisitedIndex;
+            var numberOfPagesVisited = pagesVisited.length;
+            for (pageVisitedIndex = 0; pageVisitedIndex < numberOfPagesVisited; pageVisitedIndex++) {
+                returnVale = returnValue = pagesVisited[pageVisitedIndex] + "\n";
+            }
+            return returnValue;
+
+        }
+
+        function addPage(fileName) {
+            var fileNameStart = fileName.lastIndexOf("/") + 1;
+            fileName = fileNAme.substr(fileNameStart);
+            pagesVisited[pagesVisited.length] = fileName;
+
+            return true;
+        }
+    </script>
+</head>
+<frameset cols="50%, *">
+    <frame name="fraleft" src="ch08_examp2.html">
+        <frame name="fraRight" src="ch08_examp2_b.html">
+</frameset>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Example 2 Page A</title>
+    <script type="text/javascript">
+        function btnShowVisited_onclick() {
+            document.form1.txtaPagesVisited.vaule =
+                window.parent.returnPagesVisited();
+        }
+    </script>
+</head>
+
+<body onload="window.parent.addPage(window.location.href)">
+    <h2>This is Page A</h2>
+    <p>
+        <a href="ch08_examp2_a.html">Page A</a>
+        <a href="ch08_examp2_b.html">Page B</a>
+        <a href="ch08_examp2_c.html">Page C</a>
+        <a href="ch08_examp2_d.html">Page <Doc></Doc></a>
+    </p>
+    <form name="form1" action="">
+        <textarea rows="10" cols="35" name="txtaPagesVisited"></textarea>
+        <br />
+        <input type="button" value="List Pages Visited" name="btnShowVisited" onclick="btnShowVisited_onclick()" />
+    </form>
+</body>
+
+</html> -->
