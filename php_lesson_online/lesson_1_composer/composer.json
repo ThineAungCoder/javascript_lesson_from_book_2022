@@ -1,0 +1,8 @@
+{
+    "name": "vendor/app",
+    "require": {
+        "fakerphp/faker": "^1.19"
+    }
+}
+
+    

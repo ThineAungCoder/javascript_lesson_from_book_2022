@@ -1,0 +1,13 @@
+{
+    "name": "database/data_thrive",
+    "type": "n",
+    "require": {
+        "fakerphp/faker": "^1.19"
+    },
+    "autoload": {
+        "psr-4": {
+            "Libs\\": "_classes/Libs/",
+            "Helpers\\": "_classes/Helpers/"
+        }
+    }
+}
